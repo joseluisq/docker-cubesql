@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  cubesql-server:
+    image: docker-cubesql:latest
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
+    ports:
+      - "4430:4430"
+    networks:
+       - cubesql-net
+
+networks:
+  cubesql-net:
+    driver: bridge
