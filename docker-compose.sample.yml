@@ -2,10 +2,14 @@ version: '3'
 
 services:
   cubesql-server:
-    image: docker-cubesql:latest
+    image: joseluisq/cubesql:latest
     # build:
     #   context: .
     #   dockerfile: Dockerfile
+    environment:
+      - "CUBESQL_PORT=4430"
+      - "CUBESQL_DATA=/data"
+      - "CUBESQL_SETTINGS=/data/cubesql.settings"
     ports:
       - "4430:4430"
     networks:

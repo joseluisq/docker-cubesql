@@ -1,15 +1,40 @@
-FROM debian:7-slim
+FROM debian:11-slim
 
-ENV CUBESQL_VERSION 561
+ARG CUBESQL_VERSION=580
 
-RUN apt-get update && apt-get install -y wget
-RUN mkdir /opt/cubesql
-RUN wget --progress=bar:force --no-check-certificate https://www.sqlabs.com/download/cubesql/${CUBESQL_VERSION}/cubesql_linux64bit.tgz
+ENV CUBESQL_VERSION=${CUBESQL_VERSION}
+ENV CUBESQL_PORT=4430
+ENV CUBESQL_DATA=/data
+ENV CUBESQL_SETTINGS=${CUBESQL_DATA}/cubesql.settings
 
-RUN gzip -dc cubesql_linux64bit.tgz | tar xvf -
-RUN mv cubesql/data/core/Linux/cubesql /opt/cubesql/cubesql
-RUN rm cubesql_linux64bit.tgz && rm -R cubesql
+LABEL version="${VERSION}" \
+    description="Docker image for CubeSQL." \
+    maintainer="Jose Quintana <joseluisq.net>"
 
-WORKDIR /opt/cubesql
+RUN set -eux \
+    && DEBIAN_FRONTEND=noninteractive apt-get update -qq \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -qq -y --no-install-recommends --no-install-suggests \
+        ca-certificates \
+        curl \
+        less \
+\
+# Clean up local repository of retrieved packages and remove the package lists
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/* \
+    && true
 
-CMD ["/opt/cubesql/cubesql", "-f", "CONSOLE"]
+RUN set -eux \
+    && curl -Lo /tmp/cubesql.tar.gz https://sqlabs.com/download/cubesql/${CUBESQL_VERSION}/cubesql_linux64bit.tar.gz \
+    && mkdir -p /usr/local/bin \
+    && tar xvfz /tmp/cubesql.tar.gz -C /usr/local/bin --strip-components=2 cubesql_64bit/data/cubesql \
+    && chmod +x /usr/local/bin/cubesql \
+    && rm -rf /tmp/cubesql.tar.gz \
+    && true
+
+RUN set -eux \
+    && mkdir -p /data \
+    && true
+
+WORKDIR /usr/local/bin
+
+CMD /usr/local/bin/cubesql -p $CUBESQL_PORT -x $CUBESQL_DATA -s $CUBESQL_SETTINGS
