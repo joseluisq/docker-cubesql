@@ -1,4 +1,4 @@
-# Docker CubeSQL
+# Docker CubeSQL [![Docker Image Size (tag)](https://img.shields.io/docker/image-size/joseluisq/cubesql/latest)](https://hub.docker.com/r/joseluisq/cubesql/tags) [![Docker Image](https://img.shields.io/docker/pulls/joseluisq/cubesql.svg)](https://hub.docker.com/r/joseluisq/cubesql/)
 
 > A Linux [Docker](https://www.docker.com/) image for the [CubeSQL](https://www.sqlabs.com/cubesql) server. <br>
 > _**Note:** This is not an official Docker image._
