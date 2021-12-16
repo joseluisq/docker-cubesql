@@ -19,7 +19,7 @@ You will need to register cubeSQL server.
 Run a container
 
 ```sh
-docker run --rm -it joseluisq/docker-cubesql:latest
+docker run --rm -it joseluisq/cubesql:latest
 ```
 
 Or run the server using [Docker Compose](https://docs.docker.com/compose/)
@@ -36,7 +36,7 @@ docker-compose -f docker-compose.sample.yml up
 Or extend this image using your own `Dockerfile`
 
 ```Dockerfile
-FROM joseluisq/docker-cubesql:latest
+FROM joseluisq/cubesql:latest
 # ....
 ```
 
