@@ -1,0 +1,25 @@
+name: devel
+
+on: [push, pull_request]
+
+jobs:
+  docker:
+    runs-on: ubuntu-20.04
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v2
+      -
+        name: Image
+        uses: mattes/cached-docker-build-action@v1
+        with:
+          args: "-t joseluisq/cubesql:latest -f Dockerfile ."
+          cache_key: "${{ hashFiles('**/lockfiles') }}"
+      -
+        name: Tests
+        uses: addnab/docker-run-action@v1
+        with:
+          image: joseluisq/cubesql:latest
+          shell: bash
+          run: |
+            cubesql -h

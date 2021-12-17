@@ -1,6 +1,6 @@
 FROM debian:11-slim
 
-ARG CUBESQL_VERSION=580
+ARG CUBESQL_VERSION=5.8.0
 
 ENV CUBESQL_VERSION=${CUBESQL_VERSION}
 ENV CUBESQL_PORT=4430
@@ -24,7 +24,8 @@ RUN set -eux \
     && true
 
 RUN set -eux \
-    && curl -Lo /tmp/cubesql.tar.gz https://sqlabs.com/download/cubesql/${CUBESQL_VERSION}/cubesql_linux64bit.tar.gz \
+    && ver=$(echo $CUBESQL_VERSION | sed -e 's:\.::g') \
+    && curl -Lo /tmp/cubesql.tar.gz https://sqlabs.com/download/cubesql/${ver}/cubesql_linux64bit.tar.gz \
     && mkdir -p /usr/local/bin \
     && tar xvfz /tmp/cubesql.tar.gz -C /usr/local/bin --strip-components=2 cubesql_64bit/data/cubesql \
     && chmod +x /usr/local/bin/cubesql \

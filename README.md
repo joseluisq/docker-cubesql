@@ -1,9 +1,9 @@
-# Docker CubeSQL [![Docker Image Size (tag)](https://img.shields.io/docker/image-size/joseluisq/cubesql/latest)](https://hub.docker.com/r/joseluisq/cubesql/tags) [![Docker Image](https://img.shields.io/docker/pulls/joseluisq/cubesql.svg)](https://hub.docker.com/r/joseluisq/cubesql/)
+# Docker cubeSQL [![devel](https://github.com/joseluisq/docker-cubesql/workflows/devel/badge.svg)](https://github.com/joseluisq/docker-cubesql/actions?query=workflow%3Adevel) ![Docker Image Version (tag latest semver)](https://img.shields.io/docker/v/joseluisq/cubesql/latest) [![Docker Image Size (tag)](https://img.shields.io/docker/image-size/joseluisq/cubesql/latest)](https://hub.docker.com/r/joseluisq/cubesql/tags) [![Docker Image](https://img.shields.io/docker/pulls/joseluisq/cubesql.svg)](https://hub.docker.com/r/joseluisq/cubesql/)
 
-> A Linux [Docker](https://www.docker.com/) image for the [CubeSQL](https://www.sqlabs.com/cubesql) server. <br>
-> _**Note:** This is not an official Docker image._
+> A Linux [Docker](https://www.docker.com/) image for the [cubeSQL](https://www.sqlabs.com/cubesql) server. <br>
+> _<small>**Note:** This is not an official Docker image.<small>_
 
-This Docker image provides the [CubeSQL](https://www.sqlabs.com/cubesql) server using latest __Debian [11-slim](https://hub.docker.com/_/debian?tab=tags&page=1&name=11-slim)__ ([Bullseye](https://www.debian.org/News/2021/20210814)).
+It provides the [cubeSQL](https://www.sqlabs.com/cubesql) server using latest __Debian [11-slim](https://hub.docker.com/_/debian?tab=tags&page=1&name=11-slim)__ ([Bullseye](https://www.debian.org/News/2021/20210814)).
 
 ## cubeSQL License/Registration
 
