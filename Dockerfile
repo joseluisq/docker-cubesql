@@ -3,11 +3,8 @@ FROM debian:11-slim
 ARG CUBESQL_VERSION=5.8.0
 
 ENV CUBESQL_VERSION=${CUBESQL_VERSION}
-ENV CUBESQL_PORT=4430
-ENV CUBESQL_DATA=/data
-ENV CUBESQL_SETTINGS=${CUBESQL_DATA}/cubesql.settings
 
-LABEL version="${VERSION}" \
+LABEL version="${CUBESQL_VERSION}" \
     description="Docker image for CubeSQL." \
     maintainer="Jose Quintana <joseluisq.net>"
 
@@ -30,12 +27,21 @@ RUN set -eux \
     && tar xvfz /tmp/cubesql.tar.gz -C /usr/local/bin --strip-components=2 cubesql_64bit/data/cubesql \
     && chmod +x /usr/local/bin/cubesql \
     && rm -rf /tmp/cubesql.tar.gz \
-    && true
-
-RUN set -eux \
     && mkdir -p /data \
     && true
 
-WORKDIR /usr/local/bin
+COPY entrypoint.sh /entrypoint.sh
 
-CMD /usr/local/bin/cubesql -p $CUBESQL_PORT -x $CUBESQL_DATA -s $CUBESQL_SETTINGS
+WORKDIR /data
+
+ENTRYPOINT ["/entrypoint.sh"]
+
+STOPSIGNAL SIGQUIT
+
+# Metadata
+LABEL org.opencontainers.image.vendor="Jose Quintana" \
+    org.opencontainers.image.url="https://github.com/joseluisq/docker-cubesql" \
+    org.opencontainers.image.title="Docker cubeSQL" \
+    org.opencontainers.image.description="A Linux Docker image for the cubeSQL server." \
+    org.opencontainers.image.version="${CUBESQL_VERSION}" \
+    org.opencontainers.image.documentation="https://github.com/joseluisq/docker-cubesql"

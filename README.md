@@ -47,6 +47,16 @@ The image provides the following environment variables for setup with the follow
 - `CUBESQL_PORT`: `4430`
 - `CUBESQL_DATA`: `/data`
 - `CUBESQL_SETTINGS`: `/data/cubesql.settings`
+- `CUBESQL_SSL_ONLY`: `false`
+- `CUBESQL_SSL_CERTIFICATE`:
+- `CUBESQL_CA_ROOT_CERTIFICATE`:
+- `CUBESQL_MAX_SHARED_DATABASES`:
+- `CUBESQL_DEBUG_MODE`: `NONE`
+- `CUBESQL_LOG_FORMAT`: `CONSOLE`
+- `CUBESQL_LOG_VERBOSITY`: `NONE`
+- `CUBESQL_OPTS`:
+
+`CUBESQL_OPTS` is a custom env to pass extra arguments to `cubesql` server which are not listed above.
 
 You can see the all cubeSQL options typing:
 
