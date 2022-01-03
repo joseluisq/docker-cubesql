@@ -89,3 +89,13 @@ docker run --rm -it joseluisq/cubesql:latest cubesql -h
 #   -m ssl_certificate      full path to the SSL cerfificate file
 #   -a ca_root_certificate  full path to the SSL CA root certiticate to enable client peer verification
 ```
+
+## Enable SSL only connections mode
+
+First set up the cubesql server using `CUBESQL_SSL_ONLY=true` environment variable in order to accept **only** SSL connections.
+
+Then on client side, for example [cubeSQL Admin](https://github.com/cubesql/cubeSQLAdmin) to connect to the server make sure to use encryption SSL.
+
+![image](https://user-images.githubusercontent.com/1700322/147923364-549c7097-b240-4527-bff5-bbb165a8496f.png)
+
+For more details take a look at [How to create a SSL certificate for localhost](https://www.sqlabs.com/blog/2020/09/how-to-create-a-ssl-certificate-for-localhost/)
