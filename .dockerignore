@@ -7,3 +7,7 @@
 .gitignore
 *docker-compose*
 Makefile
+**/*.pem
+**/*.ca*
+**/*.cer*
+**/*.key*
