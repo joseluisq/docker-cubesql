@@ -1,20 +1,31 @@
 version: '3'
 
 services:
-  cubesql-server:
-    image: joseluisq/cubesql:latest
-    # build:
-    #   context: .
-    #   dockerfile: Dockerfile
+  app:
+    image: joseluisq/cubesql:5
     environment:
       - "CUBESQL_PORT=4430"
       - "CUBESQL_DATA=/data"
-      - "CUBESQL_SETTINGS=/data/cubesql.settings"
+      - "CUBESQL_DEBUG_MODE=CONSOLE"
+      - "CUBESQL_LOG_VERBOSITY=NONE"
+
+      # NOTE: Configure the following if you want strict SSL support
+      # - "CUBESQL_SSL_ONLY=true"
+      # - "CUBESQL_SSL_CERTIFICATE=/etc/ssl/certs/cert.pem"
+      # - "CUBESQL_CA_ROOT_CERTIFICATE=/etc/ssl/certs/ca.pem"
+      # - "CUBESQL_OPTS=-k 1.2"
+    volumes:
+      - cubesql-data:/data
+
+      # NOTE: Configure the following if you want strict SSL support
+      # - /etc/ssl/certs/cert.pem:/etc/ssl/certs/cert.pem
+      # - /etc/ssl/certs/ca.pem:/etc/ssl/certs/ca.pem
     ports:
       - "4430:4430"
-    networks:
-       - cubesql-net
+      - "4435:4435/udp"
 
-networks:
-  cubesql-net:
-    driver: bridge
+volumes:
+
+# Create an external Docker volume for proper persistence
+  cubesql-data:
+    external: true

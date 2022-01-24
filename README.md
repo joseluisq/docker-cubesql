@@ -99,3 +99,19 @@ Then on client side, for example [cubeSQL Admin](https://github.com/cubesql/cube
 ![image](https://user-images.githubusercontent.com/1700322/147923364-549c7097-b240-4527-bff5-bbb165a8496f.png)
 
 For more details take a look at [How to create a SSL certificate for localhost](https://www.sqlabs.com/blog/2020/09/how-to-create-a-ssl-certificate-for-localhost/)
+
+## Docker Compose Example
+
+A working [Docker Compose](https://docs.docker.com/compose/) example can be found on [docker-compose.sample.yml](docker-compose.sample.yml)
+
+## Contributions
+
+Unless you explicitly state otherwise, any contribution intentionally submitted for inclusion in current work by you, as defined in the Apache-2.0 license, shall be dual licensed as described below, without any additional terms or conditions.
+
+Feel free to send some [Pull request](https://github.com/joseluisq/docker-cubesql/pulls) or file an [issue](https://github.com/joseluisq/docker-cubesql/issues).
+
+## License
+
+This work is primarily distributed under the terms of both the [MIT license](LICENSE-MIT) and the [Apache License (Version 2.0)](LICENSE-APACHE).
+
+© 2021-present [Jose Quintana](https://git.io/joseluisq)
