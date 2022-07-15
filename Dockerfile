@@ -1,7 +1,7 @@
 FROM debian:11-slim
 
 ARG CUBESQL_VERSION=latest
-ARG CUBESQL_VERSION_REQUIRED=5.8.5
+ARG CUBESQL_VERSION_REQUIRED=5.9.0
 
 ENV CUBESQL_VERSION=${CUBESQL_VERSION}
 
@@ -27,9 +27,10 @@ RUN set -eux \
     && mkdir -p /usr/local/bin \
     && tar xvfz /tmp/cubesql.tar.gz -C /usr/local/bin --strip-components=2 cubesql_64bit/data/cubesql \
     && chmod +x /usr/local/bin/cubesql \
+    && echo "Verifing Cubesql server version..." \
     && ver_match=$(cubesql -y) \
     && if [ "${CUBESQL_VERSION_REQUIRED}" != "${ver_match}" ]; then \
-        echo "Cubesql installed version doesn't match"; \
+        echo "Error: Cubesql installed version doesn't match"; \
         echo "Installed version:"; \
         cubesql -y; \
         echo "Required version:"; \

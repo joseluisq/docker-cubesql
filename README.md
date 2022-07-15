@@ -114,4 +114,4 @@ Feel free to send some [Pull request](https://github.com/joseluisq/docker-cubesq
 
 This work is primarily distributed under the terms of both the [MIT license](LICENSE-MIT) and the [Apache License (Version 2.0)](LICENSE-APACHE).
 
-© 2021-present [Jose Quintana](https://git.io/joseluisq)
+© 2021-present [Jose Quintana](https://joseluisq.net)
