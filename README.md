@@ -3,7 +3,7 @@
 > A Linux [Docker](https://www.docker.com/) image for the [cubeSQL](https://www.sqlabs.com/cubesql) server. <br>
 > _<small>**Note:** This is not an official Docker image.<small>_
 
-It provides the [cubeSQL](https://www.sqlabs.com/cubesql) server using latest __Debian [11-slim](https://hub.docker.com/_/debian?tab=tags&page=1&name=11-slim)__ ([Bullseye](https://www.debian.org/News/2021/20210814)).
+It provides the [cubeSQL](https://www.sqlabs.com/cubesql) server using latest __Debian [12-slim](https://hub.docker.com/_/debian/tags?name=12-slim)__ ([Bookworm](https://www.debian.org/News/2025/20250315)).
 
 ## cubeSQL License/Registration
 
@@ -68,6 +68,7 @@ docker run --rm -it joseluisq/cubesql:latest cubesql -h
 #   -y                      print version and exit
 #   -z                      do not load disabled logins table
 #   -q                      enable SSL only connections mode
+#   -P                      force optional verify peer even if root CA certificate is loaded
 #   -t nthreads             set default startup working threads
 #   -o ndatabases           set max number of shared databases
 #   -l backlog              backlog size to be specified in the listen function
@@ -87,6 +88,7 @@ docker run --rm -it joseluisq/cubesql:latest cubesql -h
 #   -e log_file             full path to log file
 #   -x data_path            full path to the main data folder used by the server
 #   -m ssl_certificate      full path to the SSL cerfificate file
+#   -M ssl_certificate_key  full path to the SSL cerfificate key file
 #   -a ca_root_certificate  full path to the SSL CA root certiticate to enable client peer verification
 ```
 
